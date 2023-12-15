@@ -1,0 +1,134 @@
+:root {
+  --drop-shadow: 0 1px .2px RGBA(47, 27, 13, .1);
+  --blue: 33, 124, 159,;
+  --exit-animation: /*slideOut 8s linear 15s forwards*/ slideOut 25s linear infinite forwards;
+}
+* {    
+  margin: 0;    
+  padding: 0;  
+}
+html {    
+    box-sizing: border-box;  
+}    
+*, *::before, *::after {    
+    box-sizing: inherit;  
+}
+body {
+  background: #d3d3d3;
+  background-image: radial-gradient(farthest-corner at 200px 200px, #F8F8FF 0%, #d3d3d3 100%);
+}
+.container {
+  height: 100vh;
+  max-width: 100vw;
+  padding-top: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#text, #skate {
+  filter: drop-shadow(var(--drop-shadow));
+}
+#text_container {
+  position: absolute;
+  height: 50vh;
+  animation:  var(--exit-animation);
+}
+#text {
+  fill: rgba(var(--blue) 1);
+  animation: /*text_colorchange 3s ease-in 8s forwards*/
+    text_colorchange 25s ease-in infinite forwards;
+}
+#skate_in {
+  animation: /*slideIn 8s linear forwards, var(--exit-animation)*/
+    slideIn 25s linear infinite forwards;
+}
+#skate_out {
+    fill: rgba(var(--blue) 0);
+  height: 50vh;
+  animation: var(--exit-animation);
+}
+#skate {
+  fill: rgba(var(--blue) 0);
+  animation: /*skate_fill 5s ease 10s forwards*/skate_fill 25s ease infinite forwards;
+}
+
+/*@keyframes slideIn {
+    0% {
+    transform: translateX(-101vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes text_colorchange {
+	0% {
+      fill: rgba(var(--blue) 1);
+    }
+	  100% {
+   	fill: rgba(255, 255, 255, 1);
+	  } 
+	}
+
+@keyframes skate_fill {
+	0% {
+   	fill: none;
+    }  1% {
+      fill: rgba(var(--blue), 0);
+    }
+	  100% {
+   	fill: rgba(var(--blue) 1);
+	  } 
+	}
+
+@keyframes slideOut {
+    0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(101vw);
+  }
+}
+*/
+
+@keyframes slideIn {
+    0% {
+    transform: translateX(-101vw);
+  }
+  26%, 100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes text_colorchange {
+	0%, 26% {
+      fill: rgba(var(--blue) 1);
+    }
+	  36%, 100% {
+   	fill: rgba(255, 255, 255, 1);
+	  } 
+	}
+
+@keyframes skate_fill {
+	0%, 32% {
+   	fill: none;
+    }  33% {
+      fill: rgba(var(--blue), 0);
+    }
+	  48%, 100% {
+   	fill: rgba(var(--blue) 1);
+	  } 
+	}
+
+@keyframes slideOut {
+    0%, 48% {
+    transform: translateX(0);
+  }
+ 74%, 100% {
+    transform: translateX(101vw);
+  }
+}
